@@ -3,138 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Muhammad Zaeny Husein</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Plus+Jakarta+Sans:wght@700&display=swap" rel="stylesheet">
+    <title>Portfolio — Muhammad Zaeny Husein</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- NAV -->
+    <nav id="mainNav">
+        <div class="nav-logo">MZH<span class="dot">.</span></div>
         <div class="nav-links">
             <a href="#beranda">Beranda</a>
             <a href="#pengalaman">Pengalaman</a>
             <a href="#pendidikan">Pendidikan</a>
             <a href="#kontak">Kontak</a>
-            <a href="portofolio.html">Portofolio</a>
+            <a href="portofolio.html" class="nav-cta">Portofolio</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span>
+        </button>
     </nav>
 
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#beranda" onclick="closeMobile()">Beranda</a>
+        <a href="#pengalaman" onclick="closeMobile()">Pengalaman</a>
+        <a href="#pendidikan" onclick="closeMobile()">Pendidikan</a>
+        <a href="#kontak" onclick="closeMobile()">Kontak</a>
+        <a href="portofolio.html" onclick="closeMobile()">Portofolio</a>
+    </div>
+
+    <!-- HERO -->
     <section id="beranda" class="hero">
-        <div class="hero-text">
-            <p class="greeting">Hallo saya</p>
-            <h1 class="nama-saya">Muhammad<br>Zaeny Husein</h1>
-            <h2>Geospasial Analis &nbsp;&nbsp; Remote Sensing Enthusiast</h2>
-            <p class="deskripsi">Selamat datang di laman saya. Pada laman ini memuat beberapa hasil pengolahan data dan kegiatan yang pernah saya lakukan. Harapannya dapat menjadi galeri, arsip, dan dokumentasi yang pernah saya lakukan. Selamat berkunjung di laman ini....</p>
+        <div class="hero-bg-lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
-        <div class="hero-image">
-            <div class="foto-bg"></div>
-            <img src="assets/Foto.png" alt="Muhammad Zaeny Husein">
+
+        <div class="hero-inner">
+            <div class="hero-left">
+                <p class="hero-eyebrow">
+                    <span class="eyebrow-line"></span>
+                    Geospasial Analis &amp; Remote Sensing
+                </p>
+                <h1 class="hero-name">
+                    <em>Muhammad</em><br>
+                    Zaeny Husein
+                </h1>
+                <p class="hero-desc">
+                    Selamat datang di laman saya. Pada laman ini memuat beberapa hasil pengolahan data
+                    dan kegiatan yang pernah saya lakukan — sebuah galeri, arsip, dan dokumentasi perjalanan saya.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#pengalaman" class="btn-outline">Lihat Pengalaman</a>
+                    <a href="portofolio.html" class="btn-fill">Portofolio →</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="photo-frame">
+                    <div class="photo-glow"></div>
+                    <div class="photo-border"></div>
+                    <img src="assets/Foto.png" alt="Muhammad Zaeny Husein" class="photo-img">
+                    <div class="photo-label">
+                        <span>Geospasial Analis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section id="pengalaman" class="section-container">
-        <h2 class="section-title">Pengalaman</h2>
-        <p class="section-subtitle">Berikut merupakan pengalaman kerja saya</p>
-        
-        <div class="grid-pengalaman">
-            <div class="card">
-                <div class="card-logo-container">
-                    <img src="assets/LogoGeoacces.png" alt="Geoaccess" class="card-logo">
+    <!-- PENGALAMAN -->
+    <section id="pengalaman" class="section-wrap">
+        <div class="section-header">
+            <p class="section-label">02 — Pengalaman</p>
+            <h2 class="section-title">Jejak Karir</h2>
+            <p class="section-sub">Berbagai pengalaman profesional yang telah membentuk keahlian saya</p>
+        </div>
+
+        <div class="exp-grid">
+            <div class="exp-card" data-index="01">
+                <div class="exp-logo-wrap">
+                    <img src="assets/LogoGeoacces.png" alt="Geoaccess" class="exp-logo">
                 </div>
-                <h3>Geoacces Indonesia</h3>
-                <p>Geospasial analis (November 2025-Sekarang)</p>
-            </div>
-            
-            <div class="card">
-                <div class="card-logo-container">
-                    <img src="assets/LogoIndonav.png" alt="Indonav" class="card-logo">
+                <div class="exp-info">
+                    <h3>Geoacces Indonesia</h3>
+                    <p class="exp-role">Geospasial Analis</p>
+                    <p class="exp-period">November 2025 — Sekarang</p>
                 </div>
-                <h3>Indonav Teknologi</h3>
-                <p>Surveyor (Oktober 2025-November 2025)</p>
+                <div class="exp-arrow">↗</div>
             </div>
 
-            <a href="LINK_NOTION_BPDAS_ANDA_DI_SINI" class="card card-link">
-                <div class="card-logo-container">
-                    <img src="assets/LogoBPDAS.png" alt="BPDAS" class="card-logo">
+            <div class="exp-card" data-index="02">
+                <div class="exp-logo-wrap">
+                    <img src="assets/LogoIndonav.png" alt="Indonav" class="exp-logo">
                 </div>
-                <h3>BPDAS Pemali Jratun</h3>
-                <p class="text-highlight">GIS Analyst (Juli 2024-Agustus 2024)</p>
+                <div class="exp-info">
+                    <h3>Indonav Teknologi</h3>
+                    <p class="exp-role">Surveyor</p>
+                    <p class="exp-period">Oktober — November 2025</p>
+                </div>
+                <div class="exp-arrow">↗</div>
+            </div>
+
+            <a href="LINK_NOTION_BPDAS_ANDA_DI_SINI" class="exp-card exp-card--link" data-index="03">
+                <div class="exp-logo-wrap">
+                    <img src="assets/LogoBPDAS.png" alt="BPDAS" class="exp-logo">
+                </div>
+                <div class="exp-info">
+                    <h3>BPDAS Pemali Jratun</h3>
+                    <p class="exp-role">GIS Analyst</p>
+                    <p class="exp-period">Juli — Agustus 2024</p>
+                </div>
+                <div class="exp-arrow">↗</div>
             </a>
 
-            <a href="LINK_NOTION_GEOGRAFI_ANDA_DI_SINI" class="card card-link">
-                <div class="card-logo-container">
-                    <img src="assets/LogoGeografi.png" alt="UGM" class="card-logo">
+            <a href="LINK_NOTION_GEOGRAFI_ANDA_DI_SINI" class="exp-card exp-card--link" data-index="04">
+                <div class="exp-logo-wrap">
+                    <img src="assets/LogoGeografi.png" alt="UGM" class="exp-logo">
                 </div>
-                <h3>Fakultas Geografi UGM</h3>
-                <p>Asisten Praktikum (2023-2024)</p>
+                <div class="exp-info">
+                    <h3>Fakultas Geografi UGM</h3>
+                    <p class="exp-role">Asisten Praktikum</p>
+                    <p class="exp-period">2023 — 2024</p>
+                </div>
+                <div class="exp-arrow">↗</div>
             </a>
         </div>
     </section>
 
-    <section id="skills" class="section-container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-wrapper">
-            <div class="skills-track">
-                <img src="assets/QGIS.png" alt="QGIS">
-                <img src="assets/GEE.png" alt="Google Earth Engine">
-                <img src="assets/Envi.png" alt="ENVI">
-                <img src="assets/GoogleColab.png" alt="Google Colab">
-                <img src="assets/ArcGISPro.png" alt="ArcGIS">
-                <img src="assets/Snap.png" alt="SNAP">
-                <img src="assets/Agisoft.png" alt="Agisoft">
-
-                <img src="assets/QGIS.png" alt="QGIS">
-                <img src="assets/GEE.png" alt="Google Earth Engine">
-                <img src="assets/Envi.png" alt="ENVI">
-                <img src="assets/GoogleColab.png" alt="Google Colab">
-                <img src="assets/ArcGISPro.png" alt="ArcGIS">
-                <img src="assets/Snap.png" alt="SNAP">
-                <img src="assets/Agisoft.png" alt="Agisoft">
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section">
+        <div class="skills-label">Tools &amp; Teknologi</div>
+        <div class="skills-marquee-wrap">
+            <div class="skills-marquee">
+                <div class="skills-track">
+                    <div class="skill-item"><img src="assets/QGIS.png" alt="QGIS"><span>QGIS</span></div>
+                    <div class="skill-item"><img src="assets/GEE.png" alt="GEE"><span>Earth Engine</span></div>
+                    <div class="skill-item"><img src="assets/Envi.png" alt="ENVI"><span>ENVI</span></div>
+                    <div class="skill-item"><img src="assets/GoogleColab.png" alt="Colab"><span>Google Colab</span></div>
+                    <div class="skill-item"><img src="assets/ArcGISPro.png" alt="ArcGIS"><span>ArcGIS Pro</span></div>
+                    <div class="skill-item"><img src="assets/Snap.png" alt="SNAP"><span>SNAP</span></div>
+                    <div class="skill-item"><img src="assets/Agisoft.png" alt="Agisoft"><span>Agisoft</span></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="skill-item"><img src="assets/QGIS.png" alt="QGIS"><span>QGIS</span></div>
+                    <div class="skill-item"><img src="assets/GEE.png" alt="GEE"><span>Earth Engine</span></div>
+                    <div class="skill-item"><img src="assets/Envi.png" alt="ENVI"><span>ENVI</span></div>
+                    <div class="skill-item"><img src="assets/GoogleColab.png" alt="Colab"><span>Google Colab</span></div>
+                    <div class="skill-item"><img src="assets/ArcGISPro.png" alt="ArcGIS"><span>ArcGIS Pro</span></div>
+                    <div class="skill-item"><img src="assets/Snap.png" alt="SNAP"><span>SNAP</span></div>
+                    <div class="skill-item"><img src="assets/Agisoft.png" alt="Agisoft"><span>Agisoft</span></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="pendidikan" class="section-container">
-        <h2 class="section-title">Pendidikan</h2>
-        <div class="pendidikan-content">
-            <div class="pendidikan-teks">
-                <h3>Lulusan Kartografi Penginderaan Jauh,<br>Fakultas Geografi, Universitas Gadjah Mada</h3>
-                <h4>Tugas Akhir</h4>
-                <p>Analisis Perubahan Komposisi Struktural Vegetasi Menggunakan Model Forest Canopy Density di Sebagian Gunung Suropati, Kabupaten Semarang dan Sekitarnya Tahun 2023-2024</p>
+    <!-- PENDIDIKAN -->
+    <section id="pendidikan" class="section-wrap">
+        <div class="section-header">
+            <p class="section-label">03 — Pendidikan</p>
+            <h2 class="section-title">Latar Belakang</h2>
+        </div>
+
+        <div class="edu-layout">
+            <div class="edu-main">
+                <div class="edu-badge">S1 — Kartografi &amp; Penginderaan Jauh</div>
+                <h3 class="edu-univ">Universitas Gadjah Mada</h3>
+                <p class="edu-faculty">Fakultas Geografi</p>
+
+                <div class="edu-thesis">
+                    <p class="thesis-label">Tugas Akhir</p>
+                    <p class="thesis-title">
+                        Analisis Perubahan Komposisi Struktural Vegetasi Menggunakan Model Forest Canopy Density
+                        di Sebagian Gunung Suropati, Kabupaten Semarang dan Sekitarnya Tahun 2023–2024
+                    </p>
+                    <a href="https://whispering-asparagus-c5b.notion.site/Tugas-Akhir-Skripsi-Muhammad-Zaeny-Husein-2486b859fdbc8033b379f53002ec9492?source=copy_link"
+                        target="_blank" class="thesis-link">Baca Selengkapnya →</a>
+                </div>
             </div>
-            <div class="ipk-box">
-                <p>3,7/4</p>
-                <a href="https://whispering-asparagus-c5b.notion.site/Tugas-Akhir-Skripsi-Muhammad-Zaeny-Husein-2486b859fdbc8033b379f53002ec9492?source=copy_link" target="_blank" class="btn-primary">Cek disini</a>
+
+            <div class="edu-stat">
+                <div class="ipk-ring">
+                    <svg viewBox="0 0 120 120" class="ring-svg">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(31,195,186,0.15)" stroke-width="8"/>
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="#1FC3BA" stroke-width="8"
+                            stroke-dasharray="326.7" stroke-dashoffset="81.7"
+                            stroke-linecap="round" transform="rotate(-90 60 60)"/>
+                    </svg>
+                    <div class="ipk-value">
+                        <span class="ipk-num">3.7</span>
+                        <span class="ipk-denom">/4.0</span>
+                    </div>
+                </div>
+                <p class="ipk-label">Indeks Prestasi</p>
             </div>
         </div>
     </section>
 
-    <section id="portofolio" class="section-container btn-group">
-        <a href="portofolio.html" class="btn-large">Portofolio Saya</a>
-        <a href="assets/CV.pdf" target="_blank" class="btn-large">CV Saya</a>
+    <!-- CTA SECTION -->
+    <section id="portofolio" class="cta-section">
+        <div class="cta-inner">
+            <p class="cta-eyebrow">Eksplorasi Lebih Lanjut</p>
+            <h2 class="cta-title">Lihat Karya &amp; Dokumen</h2>
+            <div class="cta-buttons">
+                <a href="portofolio.html" class="cta-btn cta-btn--primary">
+                    <span>Portofolio Saya</span>
+                    <span class="btn-icon">→</span>
+                </a>
+                <a href="assets/CV.pdf" target="_blank" class="cta-btn cta-btn--secondary">
+                    <span>Unduh CV</span>
+                    <span class="btn-icon">↓</span>
+                </a>
+            </div>
+        </div>
     </section>
 
+    <!-- FOOTER -->
     <footer id="kontak">
-        <p>Kenal lebih dekat yuk!!!</p>
-        <div class="social-icons">
-            <a href="https://wa.me/6285640674635" target="_blank">
-                <img src="assets/WA.png" alt="WhatsApp">
-            </a>
-            <a href="https://www.tiktok.com/@sennnnnnnnh?_t=ZS-8yZfUj1YEIK&_r=1" target="_blank">
-                <img src="assets/Tiktok.png" alt="TikTok">
-            </a>
-            <a href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=zaenyhusein@gmail.com" target="_blank">
-                <img src="assets/Email.png" alt="Email">
-            </a>
-            <a href="https://www.instagram.com/zennnsennnn?igsh=Z3Blc3F3dm5uODli" target="_blank">
-                <img src="assets/Instagram.png" alt="Instagram">
-            </a>
-            <a href="https://www.linkedin.com/in/muhammad-zaeny-husein" target="_blank">
-                <img src="assets/Linkedin.png" alt="LinkedIn">
-            </a>
-            <a href="https://github.com/zaenyhusen" target="_blank">
-                <img src="assets/Github.png" alt="GitHub">
-            </a>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p class="footer-logo">MZH<span class="dot">.</span></p>
+                <p class="footer-tagline">Geospasial Analis &amp; Remote Sensing Enthusiast</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-connect">Mari Terhubung</p>
+                <div class="social-row">
+                    <a href="https://wa.me/6285640674635" target="_blank" class="social-link" aria-label="WhatsApp">
+                        <img src="assets/WA.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.tiktok.com/@sennnnnnnnh?_t=ZS-8yZfUj1YEIK&_r=1" target="_blank" class="social-link" aria-label="TikTok">
+                        <img src="assets/Tiktok.png" alt="TikTok">
+                    </a>
+                    <a href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=zaenyhusein@gmail.com" target="_blank" class="social-link" aria-label="Email">
+                        <img src="assets/Email.png" alt="Email">
+                    </a>
+                    <a href="https://www.instagram.com/zennnsennnn?igsh=Z3Blc3F3dm5uODli" target="_blank" class="social-link" aria-label="Instagram">
+                        <img src="assets/Instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammad-zaeny-husein" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <img src="assets/Linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/zaenyhusen" target="_blank" class="social-link" aria-label="GitHub">
+                        <img src="assets/Github.png" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Muhammad Zaeny Husein. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        let cx = 0, cy = 0, tx = 0, ty = 0;
+
+        document.addEventListener('mousemove', e => {
+            tx = e.clientX; ty = e.clientY;
+            cursorDot.style.left = tx + 'px';
+            cursorDot.style.top = ty + 'px';
+        });
+
+        function animCursor() {
+            cx += (tx - cx) * 0.12;
+            cy += (ty - cy) * 0.12;
+            cursor.style.left = cx + 'px';
+            cursor.style.top = cy + 'px';
+            requestAnimationFrame(animCursor);
+        }
+        animCursor();
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor--hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor--hover'));
+        });
+
+        // Nav scroll
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+        });
+
+        // Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        function closeMobile() {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        }
+
+        // Intersection observer for fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.exp-card, .section-header, .edu-layout, .cta-inner').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

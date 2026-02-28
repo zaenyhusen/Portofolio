@@ -3,70 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Muhammad Zaeny Husein</title>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <title>Portofolio — Muhammad Zaeny Husein</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="portofolio-page">
-    <div class="glow-bg-left"></div>
 
-    <nav>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Ambient background -->
+    <div class="porto-ambient">
+        <div class="ambient-orb ambient-orb--1"></div>
+        <div class="ambient-orb ambient-orb--2"></div>
+    </div>
+
+    <nav id="mainNav">
+        <div class="nav-logo">MZH<span class="dot">.</span></div>
         <div class="nav-links">
             <a href="index.html#beranda">Beranda</a>
             <a href="index.html#pengalaman">Pengalaman</a>
             <a href="index.html#pendidikan">Pendidikan</a>
             <a href="index.html#kontak">Kontak</a>
-            <a href="portofolio.html" class="active">Portofolio</a>
+            <a href="portofolio.html" class="nav-cta active">Portofolio</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span>
+        </button>
     </nav>
 
-    <header class="portofolio-header">
-        <h1>PORTOFOLIO</h1>
-        <p>Selamat datang di Halaman portofolio saya. Disini merupakan berbagai hasil dari karya peta saya baik selama kuliah maupun selama bekerja.</p>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#beranda" onclick="closeMobile()">Beranda</a>
+        <a href="index.html#pengalaman" onclick="closeMobile()">Pengalaman</a>
+        <a href="index.html#pendidikan" onclick="closeMobile()">Pendidikan</a>
+        <a href="index.html#kontak" onclick="closeMobile()">Kontak</a>
+        <a href="portofolio.html" onclick="closeMobile()">Portofolio</a>
+    </div>
+
+    <header class="porto-header">
+        <p class="porto-eyebrow"><span class="eyebrow-line"></span> Karya &amp; Proyek</p>
+        <h1 class="porto-title">Portofolio</h1>
+        <p class="porto-desc">
+            Kumpulan hasil karya peta dan proyek geospasial — mulai dari masa kuliah hingga dunia profesional.
+        </p>
     </header>
 
-    <main class="portofolio-container">
-        <div class="grid-portofolio">
-            
-            <a href="https://geoacces-482711.projects.earthengine.app/view/dashboard-biofisik-lahan" target="_blank" class="card-porto link-porto">
-                <img src="assets/LogoBiofisik.png" alt="Biofisik Lahan" class="icon-porto">
-                <h3>Dashboard Biofisik<br>Lahan Indonesia</h3>
+    <main class="porto-main">
+        <div class="porto-grid">
+
+            <a href="https://geoacces-482711.projects.earthengine.app/view/dashboard-biofisik-lahan"
+               target="_blank" class="porto-card porto-card--link">
+                <div class="porto-card-inner">
+                    <div class="porto-card-img">
+                        <img src="assets/LogoBiofisik.png" alt="Biofisik Lahan">
+                    </div>
+                    <div class="porto-card-content">
+                        <span class="porto-tag">Dashboard · GEE</span>
+                        <h3>Dashboard Biofisik Lahan Indonesia</h3>
+                        <p class="porto-link-label">Buka Proyek ↗</p>
+                    </div>
+                </div>
             </a>
 
-            <a href="https://geoacces-482711.projects.earthengine.app/view/dashboard-topografi-indonesia" target="_blank" class="card-porto link-porto">
-                <img src="assets/LogoTopografi.png" alt="Topografi Indonesia" class="icon-porto">
-                <h3>Dashboard Topografi<br>Indonesia</h3>
+            <a href="https://geoacces-482711.projects.earthengine.app/view/dashboard-topografi-indonesia"
+               target="_blank" class="porto-card porto-card--link">
+                <div class="porto-card-inner">
+                    <div class="porto-card-img">
+                        <img src="assets/LogoTopografi.png" alt="Topografi Indonesia">
+                    </div>
+                    <div class="porto-card-content">
+                        <span class="porto-tag">Dashboard · GEE</span>
+                        <h3>Dashboard Topografi Indonesia</h3>
+                        <p class="porto-link-label">Buka Proyek ↗</p>
+                    </div>
+                </div>
             </a>
 
-            <a href="https://www.arcgis.com/apps/dashboards/38c19915dbcf4ad59cbc6a8a2d293fb5" target="_blank" class="card-porto link-porto">
-                <img src="assets/LogoSambak.png" alt="Desa Sambak" class="icon-porto">
-                <h3>Dashboard Desa<br>Sambak</h3>
+            <a href="https://www.arcgis.com/apps/dashboards/38c19915dbcf4ad59cbc6a8a2d293fb5"
+               target="_blank" class="porto-card porto-card--link">
+                <div class="porto-card-inner">
+                    <div class="porto-card-img">
+                        <img src="assets/LogoSambak.png" alt="Desa Sambak">
+                    </div>
+                    <div class="porto-card-content">
+                        <span class="porto-tag">Dashboard · ArcGIS</span>
+                        <h3>Dashboard Desa Sambak</h3>
+                        <p class="porto-link-label">Buka Proyek ↗</p>
+                    </div>
+                </div>
             </a>
 
-            <div class="card-porto">
-                <h3 class="soon-text">Sooon...</h3>
+            <a href="https://storymaps.arcgis.com/stories/5e6ee15252e64421817ece4d76cee2c1"
+               target="_blank" class="porto-card porto-card--link">
+                <div class="porto-card-inner">
+                    <div class="porto-card-img">
+                        <img src="assets/LogoSambak.png" alt="Story Maps">
+                    </div>
+                    <div class="porto-card-content">
+                        <span class="porto-tag">Story Maps · ArcGIS</span>
+                        <h3>Story Maps Desa Sambak</h3>
+                        <p class="porto-link-label">Buka Proyek ↗</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="porto-card porto-card--static">
+                <div class="porto-card-inner">
+                    <div class="porto-card-img">
+                        <img src="assets/LogoKuliah.png" alt="Tugas Kuliah">
+                    </div>
+                    <div class="porto-card-content">
+                        <span class="porto-tag">Akademik · Peta</span>
+                        <h3>Tugas Peta Kuliah</h3>
+                    </div>
+                </div>
             </div>
 
-            <a href="https://storymaps.arcgis.com/stories/5e6ee15252e64421817ece4d76cee2c1" target="_blank" class="card-porto link-porto">
-                <img src="assets/LogoSambak.png" alt="Story Maps" class="icon-porto">
-                <h3>Story Maps Desa<br>Sambak</h3>
-            </a>
-
-            <div class="card-porto">
-                <img src="assets/LogoKuliah.png" alt="Tugas Kuliah" class="icon-porto">
-                <h3>Tugas Peta Kuliah</h3>
+            <div class="porto-card porto-card--soon">
+                <div class="porto-card-inner porto-card-soon-inner">
+                    <div class="soon-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p class="soon-text">Segera hadir</p>
+                </div>
             </div>
 
-            <div class="card-porto">
-                <h3 class="soon-text">Sooon...</h3>
+            <div class="porto-card porto-card--soon">
+                <div class="porto-card-inner porto-card-soon-inner">
+                    <div class="soon-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p class="soon-text">Segera hadir</p>
+                </div>
             </div>
 
-            <div class="card-porto">
-                <h3 class="soon-text">Sooon...</h3>
+            <div class="porto-card porto-card--soon">
+                <div class="porto-card-inner porto-card-soon-inner">
+                    <div class="soon-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p class="soon-text">Segera hadir</p>
+                </div>
             </div>
 
         </div>
     </main>
 
+    <footer id="kontak">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p class="footer-logo">MZH<span class="dot">.</span></p>
+                <p class="footer-tagline">Geospasial Analis &amp; Remote Sensing Enthusiast</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-connect">Mari Terhubung</p>
+                <div class="social-row">
+                    <a href="https://wa.me/6285640674635" target="_blank" class="social-link"><img src="assets/WA.png" alt="WhatsApp"></a>
+                    <a href="https://www.tiktok.com/@sennnnnnnnh?_t=ZS-8yZfUj1YEIK&_r=1" target="_blank" class="social-link"><img src="assets/Tiktok.png" alt="TikTok"></a>
+                    <a href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=zaenyhusein@gmail.com" target="_blank" class="social-link"><img src="assets/Email.png" alt="Email"></a>
+                    <a href="https://www.instagram.com/zennnsennnn?igsh=Z3Blc3F3dm5uODli" target="_blank" class="social-link"><img src="assets/Instagram.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/in/muhammad-zaeny-husein" target="_blank" class="social-link"><img src="assets/Linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://github.com/zaenyhusen" target="_blank" class="social-link"><img src="assets/Github.png" alt="GitHub"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Muhammad Zaeny Husein. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorDot = document.getElementById('cursorDot');
+        let cx = 0, cy = 0, tx = 0, ty = 0;
+        document.addEventListener('mousemove', e => {
+            tx = e.clientX; ty = e.clientY;
+            cursorDot.style.left = tx + 'px';
+            cursorDot.style.top = ty + 'px';
+        });
+        function animCursor() {
+            cx += (tx - cx) * 0.12;
+            cy += (ty - cy) * 0.12;
+            cursor.style.left = cx + 'px';
+            cursor.style.top = cy + 'px';
+            requestAnimationFrame(animCursor);
+        }
+        animCursor();
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('cursor--hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor--hover'));
+        });
+
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+        function closeMobile() {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('in-view'), i * 80);
+                }
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.porto-card').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
