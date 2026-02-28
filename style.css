@@ -13,7 +13,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth; /* Efek scroll halus antar halaman */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -27,24 +30,36 @@ body {
 nav {
     display: flex;
     justify-content: center;
-    padding: 30px;
+    padding: 20px 16px;
     background: transparent;
     position: sticky;
     top: 0;
     z-index: 100;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
 }
 
 .nav-links a {
     color: var(--text-white);
     text-decoration: none;
-    margin: 0 20px;
-    font-size: 16px;
+    font-size: clamp(13px, 1.5vw, 16px);
     font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
 }
 
-.nav-links a:hover {
-    color: var(--accent-color);
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--btn-color);
 }
 
 /* --- HERO SECTION --- */
@@ -52,62 +67,65 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 10%;
+    padding: clamp(30px, 6vw, 80px) clamp(20px, 10%, 120px);
     min-height: 80vh;
+    gap: 40px;
 }
 
 .hero-text {
     max-width: 650px;
+    flex: 1;
+    min-width: 0;
 }
 
 .greeting {
-    font-size: 24px;
+    font-size: clamp(16px, 2vw, 24px);
     margin-bottom: 10px;
 }
 
 .nama-saya {
     font-family: var(--font-heading);
-    font-size: 72px;
+    font-size: clamp(36px, 6vw, 72px);
     line-height: 1.1;
     margin-bottom: 20px;
-    transition: all 0.3s ease; /* Animasi transisi */
+    transition: all 0.3s ease;
 }
 
-/* Animasi perubahan warna dan bergerak saat kursor diarahkan ke nama */
 .nama-saya:hover {
-    color: var(--accent-color);
+    color: var(--btn-color);
     transform: translateY(-8px);
 }
 
 .hero h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: px;
-    font-weight: 400; 
-    line-height: 37px; 
+    font-size: clamp(14px, 1.8vw, 22px);
+    font-weight: 400;
+    line-height: 1.5;
     color: #06f1f1;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .deskripsi {
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.6;
 }
 
 .hero-image {
     position: relative;
-    width: 600px;
+    width: clamp(200px, 40%, 500px);
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
 }
 
 .foto-bg {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 100%;
+    padding-bottom: 100%;
     background: radial-gradient(50% 50% at 50% 50%, #10645F 0%, #202020 100%);
     border-radius: 50%;
     z-index: -1;
-    top: -100px;
+    top: -20%;
 }
 
 .hero-image img {
@@ -117,12 +135,12 @@ nav {
 
 /* --- SECTION UMUM --- */
 .section-container {
-    padding: 80px 10%;
+    padding: clamp(40px, 6vw, 80px) clamp(20px, 10%, 120px);
 }
 
 .section-title {
     font-family: var(--font-heading);
-    font-size: 54px;
+    font-size: clamp(32px, 5vw, 54px);
     color: var(--accent-color);
     text-align: center;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -130,16 +148,16 @@ nav {
 }
 
 .section-subtitle {
-    font-size: 18px;
+    font-size: clamp(14px, 1.5vw, 18px);
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 /* --- KARTU PENGALAMAN --- */
 .grid-pengalaman {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -147,12 +165,12 @@ nav {
 .card {
     background: var(--card-grad);
     border-radius: 20px;
-    padding: 30px;
+    padding: clamp(20px, 3vw, 30px);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none; /* Untuk kartu yang berupa link */
+    text-decoration: none;
     color: var(--text-white);
     transition: transform 0.2s;
 }
@@ -163,28 +181,30 @@ nav {
 
 .card-logo-container {
     background: #FFFFFF;
-    border-radius: 20px;
+    border-radius: 16px;
     width: 80%;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     padding: 10px;
 }
 
 .card-logo {
     max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .card h3 {
-    font-size: 30px;
+    font-size: clamp(18px, 2.5vw, 28px);
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .card p {
-    font-size: 12px;
+    font-size: clamp(12px, 1.2vw, 14px);
 }
 
 .text-highlight {
@@ -201,26 +221,24 @@ nav {
 }
 
 .skills-track {
-    display: inline-flex; 
-    gap: 60px;
-   animation: berjalan 20s linear infinite; 
+    display: inline-flex;
+    gap: 40px;
+    animation: berjalan 20s linear infinite;
 }
-/* Mengatur ukuran logo */
+
 .skills-track img {
-    height: 70px; 
+    height: clamp(40px, 6vw, 70px);
     object-fit: contain;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+
 .skills-track:hover {
     animation-play-state: paused;
 }
+
 @keyframes berjalan {
-    0% {
-        transform: translateX(0); /* Posisi awal */
-    }
-    100% {
-        transform: translateX(calc(-50% - 30px)); 
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 20px)); }
 }
 
 /* --- PENDIDIKAN --- */
@@ -229,33 +247,42 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .pendidikan-teks {
-    max-width: 60%;
+    flex: 1;
+    min-width: 260px;
 }
 
 .pendidikan-teks h3 {
-    font-size: 30px;
+    font-size: clamp(18px, 2.5vw, 28px);
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .pendidikan-teks h4 {
-    font-size: 30px;
+    font-size: clamp(16px, 2vw, 24px);
     font-weight: 500;
     margin-bottom: 10px;
+}
+
+.pendidikan-teks p {
+    font-size: clamp(13px, 1.4vw, 16px);
+    line-height: 1.6;
 }
 
 .ipk-box {
     background: linear-gradient(180deg, #202020 0%, #1D524F 100%);
     border-radius: 20px;
-    padding: 40px 60px;
+    padding: clamp(24px, 4vw, 40px) clamp(30px, 5vw, 60px);
     text-align: center;
+    flex-shrink: 0;
 }
 
 .ipk-box p {
-    font-size: 80px;
+    font-size: clamp(50px, 8vw, 80px);
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -264,33 +291,47 @@ nav {
 .btn-primary {
     background: var(--btn-color);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    padding: 15px 40px;
+    border-radius: 16px;
+    padding: 12px 32px;
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 18px;
+    font-size: clamp(14px, 1.5vw, 18px);
     display: inline-block;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
 }
 
 .btn-group {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: clamp(16px, 4vw, 40px);
+    flex-wrap: wrap;
 }
 
 .btn-large {
     background: var(--btn-color);
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    padding: 30px 0%;
-    width: 360px;
+    padding: clamp(16px, 2.5vw, 30px) clamp(24px, 4vw, 48px);
+    min-width: 200px;
+    max-width: 360px;
+    width: 100%;
     display: inline-block;
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 30px;
+    font-size: clamp(18px, 2.5vw, 30px);
     text-align: center;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-large:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
 }
 
 /* --- FOOTER / KONTAK --- */
@@ -298,12 +339,12 @@ footer {
     background: #FFFFFF;
     color: var(--btn-color);
     text-align: center;
-    padding: 40px 0;
+    padding: clamp(24px, 4vw, 40px) 20px;
     margin-top: 50px;
 }
 
 footer p {
-    font-size: 18px;
+    font-size: clamp(14px, 1.8vw, 18px);
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -311,11 +352,12 @@ footer p {
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: clamp(12px, 2.5vw, 30px);
 }
 
 .social-icons img {
-    height: 50px;
+    height: clamp(36px, 5vw, 50px);
     transition: transform 0.2s;
 }
 
@@ -324,168 +366,207 @@ footer p {
 }
 
 /* =========================================
-   GAYA KHUSUS HALAMAN PORTOFOLIO 
+   GAYA KHUSUS HALAMAN PORTOFOLIO
    ========================================= */
 
-/* Background halaman portofolio sesuai Figma (#1A1A1E) */
 .portofolio-page {
     background-color: #1A1A1E;
     position: relative;
     min-height: 100vh;
 }
 
-/* Cahaya radial besar di sisi kiri */
 .glow-bg-left {
     position: absolute;
-    width: 900px;
-    height: 900px;
-    left: -400px;
-    top: -200px;
+    width: clamp(300px, 60vw, 900px);
+    height: clamp(300px, 60vw, 900px);
+    left: clamp(-200px, -30vw, -400px);
+    top: clamp(-100px, -15vw, -200px);
     background: radial-gradient(50% 50% at 50% 50%, #10645F 0%, rgba(32, 32, 32, 0) 100%);
-    z-index: -1;
+    z-index: 0;
     border-radius: 50%;
+    pointer-events: none;
 }
 
-/* Header Portofolio */
 .portofolio-header {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 60px;
+    padding: clamp(30px, 5vw, 60px) 20px clamp(30px, 4vw, 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .portofolio-header h1 {
     font-family: 'League Spartan', sans-serif;
-    font-size: 64px;
+    font-size: clamp(36px, 6vw, 64px);
     color: #FFFFFF;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: 2px;
 }
 
 .portofolio-header p {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: clamp(14px, 1.6vw, 18px);
+    line-height: 1.6;
     color: #FFFFFF;
     max-width: 700px;
     text-align: center;
 }
 
-/* Grid Layout 4 Kolom */
 .portofolio-container {
-    padding: 0 5%;
+    padding: 0 clamp(16px, 5%, 60px);
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
 }
 
 .grid-portofolio {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom sejajar */
-    gap: 30px; /* Jarak antar kartu */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: clamp(16px, 2.5vw, 30px);
     max-width: 1200px;
     width: 100%;
 }
 
-/* Desain Kartu Putih */
 .card-porto {
     background-color: #FFFFFF;
     border-radius: 20px;
-    height: 220px;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: clamp(16px, 2vw, 24px);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none; /* Penting jika kartu berupa link */
+    text-decoration: none;
+    cursor: default;
 }
 
-/* Efek saat kartu di-hover */
+.card-porto.link-porto {
+    cursor: pointer;
+}
+
 .card-porto:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 .icon-porto {
-    height: 72px; /* Ukuran icon */
+    height: clamp(48px, 7vw, 72px);
     object-fit: contain;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .card-porto h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 18px;
-    color: #202222; /* Warna teks gelap dari Figma */
-    line-height: 1.2;
+    font-size: clamp(13px, 1.4vw, 17px);
+    color: #202222;
+    line-height: 1.3;
 }
 
 .soon-text {
-    color: #A0A0A0 !important; /* Warna teks abu-abu untuk kotak kosong */
+    color: #A0A0A0 !important;
+    font-size: clamp(14px, 1.5vw, 18px) !important;
 }
 
 /* =========================================
-   RESPONSIVE DESIGN (UNTUK HP & TABLET)
+   RESPONSIVE BREAKPOINTS
+   ========================================= */
 
-/* Kode di bawah ini HANYA akan aktif jika lebar layar 768px ke bawah */
+/* Tablet (481px - 768px) */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Menyesuaikan Navigasi agar tidak menabrak layar */
-    nav { padding: 15px; }
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Jika menu terlalu panjang, otomatis turun ke baris bawah */
-        justify-content: center;
-        gap: 10px;
-    }
-    .nav-links a { margin: 0 5px; font-size: 14px; }
-
-    /* 2. Mengubah Hero Section (Beranda) menjadi atas-bawah */
     .hero {
-        flex-direction: column-reverse; /* Teks di bawah, foto di atas (atau sebaliknya) */
+        flex-direction: column-reverse;
         text-align: center;
-        padding: 40px 5%;
-    }
-    .hero-text { margin-bottom: 40px; }
-    .nama-saya { font-size: 40px; } /* Mengecilkan ukuran nama */
-    .hero-image { width: 100%; max-width: 300px; margin-bottom: 30px;}
-    .foto-bg { width: 400px; height: 400px; top: -50px; } /* Menyesuaikan background cahaya */
-
-    /* 3. Menjadikan Grid Pengalaman 1 Kolom memanjang ke bawah */
-    .grid-pengalaman {
-        grid-template-columns: 1fr; /* Memaksa dari 2 kolom menjadi 1 kolom */
+        min-height: auto;
+        padding: 30px 20px 40px;
+        gap: 24px;
     }
 
-    /* 4. Menyesuaikan Bagian Pendidikan */
+    .hero-image {
+        width: clamp(180px, 60%, 300px);
+    }
+
+    .foto-bg {
+        top: -15%;
+    }
+
     .pendidikan-content {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pendidikan-teks {
         text-align: center;
-    }
-    .pendidikan-teks { max-width: 100%; margin-bottom: 40px; }
-    .ipk-box { width: 100%; padding: 30px 20px; }
-    .ipk-box p { font-size: 60px; }
-
-    /* 5. Mengecilkan Tombol Portofolio dan CV */
-    .btn-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .btn-large { 
-        width: 100%; 
-        max-width: 300px; 
-        padding: 20px 0; 
-        font-size: 20px; 
+        min-width: unset;
     }
 
-    /* 6. Halaman Portofolio.html (Dari 4 Kartu sejajar menjadi 1 baris turun) */
+    .ipk-box {
+        width: 100%;
+    }
+
+    .grid-portofolio {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile (max 480px) */
+@media screen and (max-width: 480px) {
+    .nav-links a {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+
+    .hero {
+        padding: 24px 16px 36px;
+    }
+
+    .hero-image {
+        width: clamp(160px, 70%, 260px);
+    }
+
+    .grid-pengalaman {
+        grid-template-columns: 1fr;
+    }
+
     .grid-portofolio {
         grid-template-columns: 1fr;
     }
-    .portofolio-header h1 { font-size: 40px; }
-    .glow-bg-left { width: 400px; height: 400px; left: -100px; top: 0; }
+
+    .btn-large {
+        max-width: 100%;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons {
+        gap: 16px;
+    }
+
+    .portofolio-header h1 {
+        letter-spacing: 1px;
+    }
+}
+
+/* Large screens */
+@media screen and (min-width: 1400px) {
+    .hero {
+        padding: 80px 12%;
+    }
+
+    .section-container {
+        padding: 80px 12%;
+    }
+
+    .grid-portofolio {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
